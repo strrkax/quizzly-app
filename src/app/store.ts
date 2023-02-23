@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import counterReducer from '../features/counter/counterSlice';
 import { questionAPI } from "../services/QuestionService";
+import queryParamsReducer from '../features/QueryParamsSlice/QueryParamsSlice';
 
 export const rootReducer = combineReducers({
-  counter: counterReducer,
+  queryParamsReducer,
   [questionAPI.reducerPath]: questionAPI.reducer,
 
 });

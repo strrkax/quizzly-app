@@ -17,10 +17,20 @@ export const questionAPI = createApi({
     baseUrl: 'https://opentdb.com/'
   }),
   endpoints: (build) => ({
-    fetchOneQuestion: build.query<QuestionApiResponse, string>({
-      query: () => ({
-        url: '/api.php?amount=1'
-      })
+    fetchOneQuestion: build.query<QuestionApiResponse, { category: string; difficulty: string; }>({
+      query: (args) => {
+        if (args) {
+          var { category, difficulty } = args;
+        }
+        return {
+          url: '/api.php',
+          params: {
+            amount: '1',
+            category: category,
+            difficulty: difficulty,
+          }
+        };
+      }
     }),
     fetchCategories: build.query<CategoriesApiResponse, string>({
       query: () => ({

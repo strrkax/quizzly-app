@@ -1,40 +1,34 @@
-import React, { FC, useEffect, useState } from 'react';
-import { ICategory } from '../../models/ICategory';
+import { FC, useState } from 'react';
 import { questionAPI } from '../../services/QuestionService';
+import DropdownMenu from '../UI/dropdownMenu/DropdownMenu';
+import DifficultySelector from './diffcultySelector/DifficultySelector';
 import './quizSettings.scss';
 
 interface QuizSettingsProps {
-  children: React.ReactNode;
+  // children: React.ReactNode;
 }
 
 const difficulty = ['easy', 'medium', 'hard', 'any'];
 
-type Difficulty = 'easy' | 'medium' | 'hard' | 'any';
-
 
 const QuizSettings: FC<QuizSettingsProps> = () => {
+  const { data } = questionAPI.useFetchCategoriesQuery('');
 
-  const [chosenDifficulty, setChosenDifficulty] = useState<Difficulty>('any');
-
-  const { data, isLoading, error } = questionAPI.useFetchCategoriesQuery('');
-
-  useEffect(() => {
-    console.log(chosenDifficulty);
-
-  }, [chosenDifficulty]);
-
-
-  const handleDifficultyChange = (item: string) => {
-    console.log(item);
-  };
+  const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty[0]);
+  const [selectedCategory, setSelectedCategory] = useState(data?.trivia_categories[0]);
 
   return (
     <form className='settings'>
-      <div className='difficulty'>
-        {difficulty.map(item =>
-          <input type="radio" checked={false} />
-        )}
-      </div>
+      <DifficultySelector
+        selectedDifficulty={selectedDifficulty}
+        setSelectedDifficulty={setSelectedDifficulty}
+        difficultyItems={difficulty}
+      />
+      <DropdownMenu
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        categories={data?.trivia_categories}
+      />
     </form>
   );
 };

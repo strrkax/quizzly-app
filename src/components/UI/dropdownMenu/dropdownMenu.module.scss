@@ -1,0 +1,50 @@
+@use 'src/styles/colors' as c;
+
+@mixin select-element {
+  white-space: nowrap;
+  padding-left: 20px;
+  padding: 15px;
+  user-select: none;
+}
+
+.container {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  z-index: 100;
+  background-color: c.$bg;
+  border-radius: 15px;
+  // border: 1px solid white;
+}
+
+.header {
+  @include select-element();
+  border-radius: 10px;
+}
+
+.body {
+  @include select-element();
+  padding: 0;
+  height: 0;
+  overflow-y: scroll;
+
+}
+
+.open {
+  background-color: blueviolet;
+  height: 200px;
+}
+
+.item {
+  padding: 15px;
+  cursor: default;
+  user-select: none;
+
+  &:first-child {
+    border-top: 1px solid rgba(c.$accent, 0.35)
+  }
+
+  &:hover {
+    background-color: rgba(c.$bg-dark, 0.2);
+  }
+}

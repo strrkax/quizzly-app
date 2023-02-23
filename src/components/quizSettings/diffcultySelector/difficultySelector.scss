@@ -1,0 +1,33 @@
+@use 'src/styles/colors' as c;
+
+.difficulty-selector {
+  -webkit-user-drag: none;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+
+
+  & input {
+    position: absolute;
+    opacity: 0;
+
+    &:checked~label {
+      background-color: c.$accent;
+    }
+  }
+
+
+  & label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    user-select: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: rgba(c.$accent, 0.25);
+    }
+  }
+}

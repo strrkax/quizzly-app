@@ -1,5 +1,7 @@
+@use 'src/styles/colors' as c;
+
 header {
-  background-color: green;
+  background-color: c.$accent-dark;
   height: 100px;
   width: 100%;
   color: black;
