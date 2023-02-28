@@ -1,4 +1,4 @@
-type NavBarRoutesItem = {
+export type NavBarRoutesItem = {
   path: string;
   text: string;
 }

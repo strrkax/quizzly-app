@@ -14,7 +14,7 @@ const difficulty = ['easy', 'medium', 'hard', 'any'];
 const QuizSettings: FC<QuizSettingsProps> = () => {
   const { data } = questionAPI.useFetchCategoriesQuery('');
 
-  const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty[0]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty[3]);
   const [selectedCategory, setSelectedCategory] = useState(data?.trivia_categories[0]);
 
   return (

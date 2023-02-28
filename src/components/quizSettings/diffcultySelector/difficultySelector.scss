@@ -6,6 +6,10 @@
   gap: 25px;
   grid-template-columns: repeat(4, 1fr);
 
+  @media (max-width: 599px) {
+    gap: 10px;
+  }
+
 
   & input {
     position: absolute;
@@ -21,10 +25,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 5px;
+    padding: 10px;
     user-select: none;
     border-radius: 25px;
     text-transform: uppercase;
+    border: 1px solid rgba(c.$accent, 0.35);
+
+    @media (max-width: 599px) {
+      padding: 5px;
+    }
+
 
     &:hover {
       background-color: rgba(c.$accent, 0.25);

@@ -1,4 +1,42 @@
+@use 'src/styles/colors' as c;
+
 .startButton {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
   width: 10rem;
-  height: 3rem;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  color: c.$gold;
+  background-color: c.$accent;
+  border: none;
+  border-radius: 10px;
+  transition-duration: 0.25s;
+  position: relative;
+  padding-right: 35px;
+  transition-duration: 0ms;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    right: 25px;
+    transform: rotate(45deg);
+    height: 12px;
+    width: 12px;
+    border-top: 4px solid currentColor;
+    border-right: 4px solid currentColor;
+    transition-duration: 0.2s;
+  }
+
+  &:hover {
+    color: lighten(c.$gold, 100%);
+
+    &::after {
+      color: c.$gold;
+      right: 15px;
+      rotate: 360deg;
+    }
+  }
 }

@@ -1,10 +1,54 @@
 @use 'src/styles/colors' as c;
 
-header {
-  background-color: c.$accent-dark;
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(19, 116, 48);
   height: 100px;
   width: 100%;
-  color: black;
+  color: c.$text-main;
   position: relative;
   top: 0;
+
+  @media (max-width: 599px) {
+    height: 50px;
+  }
+
+
+  & .logo-icon {
+    height: 100%;
+    filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  & nav {
+    display: grid;
+    gap: 10px;
+    height: 100%;
+    width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  & h1 {
+    font-weight: 700;
+    font-size: 40px;
+    color: c.$gold;
+    text-shadow: 5px 5px 10px rgba(c.$bg-dark, 0.5);
+
+
+    @media (max-width: 599px) {
+      font-size: 20px;
+    }
+
+  }
+
+  & span {
+    text-transform: uppercase;
+  }
 }

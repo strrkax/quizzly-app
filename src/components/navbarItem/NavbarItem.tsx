@@ -1,18 +1,20 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import './navbarItem.scss';
 
 interface NavbarItemProps {
   path: string;
   children: string;
+  onClick: () => void;
 }
 
-const NavbarItem: FC<NavbarItemProps> = ({children, path}) => {
+const NavbarItem: FC<NavbarItemProps> = ({ children, path }) => {
   return (
     <NavLink
-    className='nav_item'
-    to={path}
-    >{children}</NavLink>
-  )
-}
+      className='nav-item'
+      to={path}
+    ><p className='inside'>{children}</p></NavLink>
+  );
+};
 
-export default NavbarItem
+export default NavbarItem;

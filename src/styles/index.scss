@@ -7,7 +7,21 @@ body,
   width: 100%;
   height: 100%;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+  overflow: auto;
   color: c.$text-main;
   background-color: c.$bg-dark;
+
+  @media (min-width: 900px) {
+    overflow-y: hidden;
+  }
+}
+
+
+.quiz-page {
+  padding: 20px;
+  overflow-x: hidden;
+
+  @media (max-width: 599px) {
+    padding: 10px;
+  }
 }

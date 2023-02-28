@@ -5,12 +5,12 @@ import './styles/index.scss';
 import { setupStore } from './app/store';
 import { StrictMode } from 'react';
 
-const store = setupStore();
+export const store = setupStore();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
-    <StrictMode>
+    {/* <StrictMode> */}
       <App />
-    </StrictMode>
+    {/* </StrictMode> */}
   </Provider>
 );

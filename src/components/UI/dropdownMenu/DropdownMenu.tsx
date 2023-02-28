@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useRef } from 'react';
 import { useAppDispatch } from '../../../hooks/redux';
 import { ICategory } from '../../../models/ICategory';
 import { changeCategory } from '../../../features/QueryParamsSlice/QueryParamsSlice';
@@ -33,6 +33,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ selectedCategory, setSelectedCate
     setIsOpen(false);
   };
 
+
   return (
     <div className={styles.container}>
       <div
@@ -41,13 +42,19 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ selectedCategory, setSelectedCate
       >
         {selectedCategory ? selectedCategory.name : "Any category"}
       </div>
-      <div className={isOpen ? '.open' : styles.body}>
-        {categories && [anyCat, ...categories].map(item =>
+      <div className={isOpen ? styles.open : styles.body}>
+        {categories && [anyCat, ...categories].map(cat =>
           <div
-            key={item.id}
-            className={styles.item}
-            onClick={(e) => handleCategoryChange(item)}
-          >{item.name}</div>
+            key={cat.id}
+            className={
+              cat.id === selectedCategory?.id
+                ?
+                [styles.item, styles.active].join(' ')
+                :
+                styles.item
+            }
+            onClick={() => handleCategoryChange(cat)}
+          >{cat.name}</div>
         )}
       </div>
     </div>

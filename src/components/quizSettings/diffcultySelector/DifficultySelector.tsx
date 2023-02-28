@@ -19,7 +19,7 @@ const DifficultySelector: FC<DifficultySelectorProps> = ({
 
   const queryParams = useAppSelector((state) => state.queryParamsReducer);
   const dispatch = useAppDispatch();
-  console.log(queryParams);
+  console.log(selectedDifficulty);
 
 
   const handleDifficultyChange = (e: React.ChangeEvent<HTMLInputElement>) => {

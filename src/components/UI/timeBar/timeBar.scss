@@ -1,0 +1,19 @@
+@use 'src/styles/colors' as c;
+
+.timebar-container {
+  height: 2px;
+  background-color: c.$gold;
+  position: absolute;
+  top: 55%;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  transition-duration: 1s;
+}
+
+.activated {
+  width: 0%;
+}

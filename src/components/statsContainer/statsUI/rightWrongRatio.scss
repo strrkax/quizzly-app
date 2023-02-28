@@ -1,0 +1,52 @@
+@use 'src/styles/colors' as c;
+
+.bar {
+  width: 300px;
+  height: 25px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: 600;
+  outline: 1px solid rgba(white, 0.15);
+}
+
+@mixin numbers {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.right {
+  @include numbers;
+  margin-left: 10px
+}
+
+.wrong {
+  @include numbers;
+  right: 0;
+  margin-right: 10px;
+}
+
+.green {
+  background-color: c.$green;
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: 0;
+}
+
+progress {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+progress::-webkit-progress-bar {
+  background-color: c.$red;
+}
+
+progress::-webkit-progress-value {
+  background-color: c.$green;
+  border-radius: 0px;
+}

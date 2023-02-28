@@ -9,21 +9,22 @@ interface QuizContainerProps {
 
 const QuizContainer: FC<QuizContainerProps> = () => {
 
-  const [trigger, { data, isFetching, error }] = questionAPI.useLazyFetchOneQuestionQuery();
+  const [trigger, { data, isFetching, isLoading, error }] = questionAPI.useLazyFetchOneQuestionQuery();
 
   useEffect(() => {
-    trigger({});
+    trigger({ category: '', difficulty: '' });
   }, []);
 
   return (
     <>
       {error && <div>Error</div>}
-      {data && data.results.map(item =>
+      {data && data.results.map(questionItem =>
         <QuestionItem
-          key={item.question}
-          item={item}
+          key={questionItem.question}
+          item={questionItem}
           triggerFetch={trigger}
           isFetching={isFetching}
+          isLoading={isLoading}
         />
       )}
     </>

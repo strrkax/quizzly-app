@@ -1,5 +1,43 @@
-.nav_item {
-  width: 100px;
-  height: 100px;
-  background: black;
+@use 'src/styles/colors' as c;
+
+.nav-item {
+  font-size: 40px;
+  font-weight: 600;
+  color: c.$text-main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.15s;
+
+  &:hover {
+    transform: scale(105%) rotate(5deg);
+    text-shadow: 2px 2px 10px rgba(c.$bg-dark, 0.25);
+  }
+}
+
+.inside {
+  position: relative;
+
+  &::after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-width: 4px 4px 0 0;
+    border-style: solid;
+    position: absolute;
+    left: -15px;
+    top: 40%;
+    rotate: 45deg;
+    border-color: currentColor;
+  }
+}
+
+.active {
+  color: c.$gold;
+
+
+  &:hover {
+    content: 'pussay';
+    color: c.$gold;
+  }
 }
